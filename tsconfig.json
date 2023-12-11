@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*", "src/*"],
+            "app/*": ["app/*"],
+            "pages/*": ["pages/*"],
+            "widgets/*": ["widgets/*"],
+            "features/*": ["features/*"],
+            "entities/*": ["entities/*"],
+            "shared/*": ["shared/*"],
+            "assets/*": ["shared/assets/*"],
+            "icons/*": ["shared/assets/icons/*", "shared/assets/icons/*.svg", "shared/assets/icons/index.ts"]
+        }
+    }
+}
