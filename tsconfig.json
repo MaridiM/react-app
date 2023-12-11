@@ -12,15 +12,18 @@
         "esModuleInterop": true,
         "baseUrl": "./src",
         "paths": {
-            "*": ["*", "src/*"],
-            "app/*": ["app/*"],
-            "pages/*": ["pages/*"],
-            "widgets/*": ["widgets/*"],
-            "features/*": ["features/*"],
-            "entities/*": ["entities/*"],
-            "shared/*": ["shared/*"],
-            "assets/*": ["shared/assets/*"],
-            "icons/*": ["shared/assets/icons/*", "shared/assets/icons/*.svg", "shared/assets/icons/index.ts"]
-        }
+            "@app/*": ["app/*"],
+            "@pages/*": ["pages/*"],
+            "@widgets/*": ["widgets/*"],
+            "@features/*": ["features/*"],
+            "@entities/*": ["entities/*"],
+            "@shared/*": ["shared/*"],
+            "@assets/*": ["shared/assets/*"],
+            "@icons/*": [
+                "shared/assets/icons/*",
+                "shared/assets/icons/*.svg",
+                "shared/assets/icons/index.ts"
+            ]
+        },
     }
 }
