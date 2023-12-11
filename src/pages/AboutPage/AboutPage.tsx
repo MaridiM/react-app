@@ -1,4 +1,4 @@
-import SVGMessage from "icons/message.svg"
+import SVGMessage from "icons"
 
 
 const AboutPage = () => {
