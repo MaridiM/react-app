@@ -4,9 +4,9 @@ import './styles/index.sass'
 
 const App = () => {
     return (
-        <div className="app">
-            <Link to="/about">About</Link>
-            <Link to="/shop">Shop</Link>
+        <div className='app' data-testId='App.testDataId'>
+            <Link to='/about'>About</Link>
+            <Link to='/shop'>Shop</Link>
 
             {/* SHOW FROM  ELEMENT */}
             <Outlet /> 

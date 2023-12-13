@@ -29,8 +29,8 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
     
     if (options.isProd) {
         plugins.push(new MiniCssExtractPlugin({
-            filename: "css/[name].[contenthash:8].css",
-            chunkFilename: "css/[id].[contenthash:8].css"
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[id].[contenthash:8].css'
         }));
 
         /** Позволяет перенести файлы */

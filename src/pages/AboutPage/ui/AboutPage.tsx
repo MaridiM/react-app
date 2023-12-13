@@ -1,4 +1,4 @@
-import { SVGMessage } from "icons"
+import { SVGMessage } from 'icons'
 
 import styles from './AboutPage.module.sass'
 

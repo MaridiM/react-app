@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react"
+import { ButtonHTMLAttributes, FC } from 'react'
 
 import style from './Button.module.sass'
 
@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = ({ children, text, className, ...rest }) => {
     return (
-        <button type="button" className={`${style.btn} ${className}`} { ...rest } >{children ?? text}</button>
+        <button type='button' className={`${style.btn} ${className}`} { ...rest } >{children ?? text}</button>
     )
 }
 

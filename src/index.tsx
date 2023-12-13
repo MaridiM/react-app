@@ -15,11 +15,7 @@ const container = createRoot(root)
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <App />
-      </Suspense>
-    ),
+    element: <App />,
     children: [
       {
         path: '/about',
