@@ -1,3 +1,4 @@
+import { BuildPlatform } from './config/build/types/types.d';
 import path from 'path';
 import { buildWebpack } from './config/build/buildWebpack';
 import { BuildMode, BuildPaths } from './config/build/types/types';
@@ -6,8 +7,9 @@ import { Configuration } from 'webpack';
 
 interface EnvVariables {
     mode: BuildMode
-    port: number
-    analyzer: boolean
+    platform?: BuildPlatform
+    port?: number
+    analyzer?: boolean
 }
 
 module.exports = (env: EnvVariables) => {
@@ -16,6 +18,7 @@ module.exports = (env: EnvVariables) => {
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'dist'),
+        public: path.resolve(__dirname, 'public'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         alias: {
             '*': path.resolve(__dirname, 'src'),
@@ -34,8 +37,9 @@ module.exports = (env: EnvVariables) => {
         paths,
         isDev,
         isProd: !isDev,
-        port: env.port,
+        port: env.port ?? 3000,
         mode: env.mode ?? 'development',
+        platform: env.platform ?? 'desktop',
         analyzer: env.analyzer,
     })
 

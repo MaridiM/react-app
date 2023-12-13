@@ -35,4 +35,12 @@ declare module '*.jpeg';
 
 declare module "icons";
 
-declare const __IS_DEV__: boolean;
+// Global variables
+
+declare const __ENV__: boolean;
+declare const __DEV__: boolean;
+declare const __PROD__: boolean;
+declare const __TEST__: boolean;
+declare const __VERSION__: string;
+declare const __BUILD_DATE__: string;
+declare const __PLATFORM__: 'mobile' | 'desctop';

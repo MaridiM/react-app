@@ -1,1 +1,1 @@
-export { default as ShopPage } from './ShopPage.async'
+export { ShopPage } from './ui'

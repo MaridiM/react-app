@@ -4,7 +4,9 @@ import styles from './AboutPage.module.sass'
 
 const AboutPage = () => {
     return (
-        <div><SVGMessage className={styles.icon} /> AboutPage</div>
+        <div>
+            <h1>PLATFORM={__PLATFORM__}</h1>
+            <SVGMessage className={styles.icon} /> AboutPage</div>
     )
 }
 

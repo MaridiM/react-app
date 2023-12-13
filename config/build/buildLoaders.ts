@@ -60,9 +60,19 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
 
     // TS Loader
     const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        test: /\.tsx?$/,
+        use: {
+            loader: 'ts-loader',
+            options: {
+                /** Уберает перезагрузку при изменении */
+                getCustomTransformers: () => ({
+                    before: [options.isDev && ReactRefreshTypeScript()].filter(Boolean),
+                }),
+                // Делает проверку типов
+                transpileOnly: options.isDev,
+            },
+        },
     }
 
     return [
@@ -71,4 +81,8 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
         cssLoader,
         typescriptLoader,
     ]
+}
+
+function ReactRefreshTypeScript() {
+    throw new Error('Function not implemented.');
 }
