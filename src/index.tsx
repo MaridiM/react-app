@@ -1,8 +1,7 @@
 import { createRoot } from 'react-dom/client'
-import { App } from './app'
+import { App } from 'app'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { AboutPage, ShopPage } from 'pages'
-import { Suspense } from 'react'
 
 const root = document.getElementById('root')
 console.log(root)

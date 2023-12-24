@@ -1,18 +1,16 @@
 import { BuildOptions } from "../build/types/types";
-import { removeDataTestIdBuildPlugin } from "./removeDataTestIdBuildPlugin";
+import { removeDataTestIdBabelPlugin } from './removeDataTestIdBuildPlugin'
 
 export function builBabelLoader(options: BuildOptions) {
-    const plugins = []
+    const plugins: any[] = []
 
-    if(options.isDev) {
-        plugins.push(
-            [
-                removeDataTestIdBuildPlugin,
-                {
-                    props: ['data-testId'],
-                }
-            ]
-        )
+    if(options.isProd) {
+        plugins.push([
+            removeDataTestIdBabelPlugin,
+            {
+                props: ['data-testid'],
+            },
+        ])
     }
 
     return {

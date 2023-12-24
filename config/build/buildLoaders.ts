@@ -1,4 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// import ReactRefreshTypeScript from 'react-refresh-typescript'
 import { ModuleOptions } from 'webpack';
 import { BuildOptions } from './types/types';
 import { builBabelLoader } from '../babel/buildBabelLoader';
@@ -60,21 +61,21 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
     }
 
     // Typescript Loader
-    const typescriptLoader = {
-        exclude: /node_modules/,
-        test: /\.tsx?$/,
-        use: {
-            loader: 'ts-loader',
-            options: {
-                /** Уберает перезагрузку при изменении */
-                getCustomTransformers: () => ({
-                    before: [options.isDev && ReactRefreshTypeScript()].filter(Boolean),
-                }),
-                // Делает проверку типов
-                transpileOnly: options.isDev,
-            },
-        },
-    }
+    // const typescriptLoader = {
+    //     exclude: /node_modules/,
+    //     test: /\.tsx?$/,
+    //     use: {
+    //         loader: 'ts-loader',
+    //         options: {
+    //             /** Уберает перезагрузку при изменении */
+    //             getCustomTransformers: () => ({
+    //                 before: [options.isDev && ReactRefreshTypeScript()].filter(Boolean),
+    //             }),
+    //             // Делает проверку типов
+    //             transpileOnly: options.isDev,
+    //         },
+    //     },
+    // }
 
 
     // Babele Loader
@@ -87,8 +88,4 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
         // typescriptLoader,
         babelLoader,
     ]
-}
-
-function ReactRefreshTypeScript() {
-    throw new Error('Function not implemented.');
 }

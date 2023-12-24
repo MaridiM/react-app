@@ -1,6 +1,6 @@
-import { PluginItem } from "@babel/core";
+import {PluginItem} from "@babel/core";
 
-export function  removeDataTestIdBuildPlugin(): PluginItem {
+export function removeDataTestIdBabelPlugin(): PluginItem {
     return {
         visitor: {
             Program(path, state) {
@@ -9,7 +9,6 @@ export function  removeDataTestIdBuildPlugin(): PluginItem {
                 path.traverse({
                     JSXIdentifier(current) {
                         const nodeName = current.node.name;
-
                         if(forbiddenProps.includes(nodeName)) {
                             current.parentPath.remove();
                         }
@@ -20,6 +19,3 @@ export function  removeDataTestIdBuildPlugin(): PluginItem {
     }
 }
 
-function JSXIdentifier(current: any) {
-    throw new Error("Function not implemented.");
-}
