@@ -11,7 +11,7 @@
     "build:desktop": "webpack -- --env mode=production --env platform=desktop"
   },
   "keywords": [],
-  "author": "",
+  "author": "MaridiM Development <maridim.dev@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.6",
