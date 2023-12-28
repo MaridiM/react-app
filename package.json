@@ -1,0 +1,16 @@
+{
+    "name": "doctorlab",
+    "version": "0.0.1",
+    "workspaces": [
+        "packages/*",
+        "services/*"
+    ],
+    "scripts": {
+        "start": "concurrently \"npm run start:root\" \"npm run start:app\"",
+        "start:root": "cd ./services/root && npm start",
+        "start:app": "cd ./services/app && npm start"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
