@@ -8,10 +8,10 @@
         "build:prod": "webpack --env mode=production",
         "build:mobile": "webpack --env mode=production --env platform=mobile",
         "build:desktop": "webpack --env mode=production --env platform=desktop",
-        "typecheck": "tsc",
         "precodegen": "del src\\types\\api.d.ts && apollo client:download-schema --endpoint=http://localhost:8000/auth schema.graphql",
         "codegen": "graphql-codegen",
-        "watch": "graphql-codegen -w"
+        "watch": "graphql-codegen -w",
+        "typecheck": "tsc"
     },
     "author": "MaridiM Development <maridim.dev@gmail.com>",
     "license": "ISC",

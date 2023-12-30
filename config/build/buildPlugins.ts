@@ -16,6 +16,7 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
         }),
         new DefinePlugin({
             __PLATFORM__: JSON.stringify(options.platform),
+            __DEV__: JSON.stringify(options.isDev)
         })
     ];
 

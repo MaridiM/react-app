@@ -1,23 +1,34 @@
 
-import { useContext } from 'react'
+import { Suspense, useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from './providers'
 import { PageLayout } from './ui'
-
+import { useLanguage, useTranslate } from 'shared/config'
+import 'shared/config/i18n/i18n'
 import './styles/index.sass'
 
 const App = () => {
     const { theme } = useContext(ThemeContext)
     
+    const { value, changeLanguage } = useLanguage()
+    const { translation: { login } } = useTranslate('auth', [
+        ['login', true],
+    ]);
+    
     return (
         <div className={`app ${theme}`} data-theme={theme} data-testid='App.testDataId'>
-            <Link to='/'>Main</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/shop'>Shop</Link>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Link to='/'>Main</Link>
+                <Link to='/about'>About</Link>
+                <Link to='/shop'>Shop</Link>
 
-            {/* SHOW FROM  ELEMENT */}
-            <PageLayout />
-            
+                <button onClick={(e) => changeLanguage(e)}>{ value }</button>
+                
+                <h3>{login.title }</h3>
+
+                {/* SHOW FROM  ELEMENT */}
+                <PageLayout />
+            </Suspense>
         </div> 
     )
 }
