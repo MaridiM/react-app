@@ -1,15 +1,22 @@
 
-import { Link, Outlet } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { ThemeContext } from './providers'
+import { PageLayout } from './ui'
+
 import './styles/index.sass'
 
 const App = () => {
+    const { theme } = useContext(ThemeContext)
+    
     return (
-        <div className='app' data-testId='App.testDataId'>
+        <div className={`app ${theme}`} data-theme={theme} data-testid='App.testDataId'>
+            <Link to='/'>Main</Link>
             <Link to='/about'>About</Link>
             <Link to='/shop'>Shop</Link>
 
             {/* SHOW FROM  ELEMENT */}
-            <Outlet /> 
+            <PageLayout />
             
         </div> 
     )

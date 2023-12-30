@@ -3,7 +3,7 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
+        "module": "esnext",
         "target": "es5",
         "jsx": "react-jsx",
         "allowJs": true,
@@ -23,8 +23,9 @@
         // можно писать такой
         // import React from 'react';
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "paths": {
+            "*": ["src/*"],
             "@app/*": ["app/*"],
             "@pages/*": ["pages/*"],
             "@widgets/*": ["widgets/*"],
@@ -32,7 +33,21 @@
             "@entities/*": ["entities/*"],
             "@shared/*": ["shared/*"],
             "@assets/*": ["shared/assets/*"],
-            "@icons/*": ["shared/assets/icons/*"]
+            "@icons/*": ["shared/assets/icons/*"],
         },
-    }
+        "composite": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "src/**/*",
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.js",
+        "src/**/*.jsx",
+    ],
+    "exclude": ["node_modules"]
 }

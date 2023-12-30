@@ -1,0 +1,1 @@
+export { moduleFederation } from './moduleFederation'

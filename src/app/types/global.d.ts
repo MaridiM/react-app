@@ -36,7 +36,6 @@ declare module '*.jpeg';
 declare module 'icons';
 
 // Global variables
-
 declare const __ENV__: boolean;
 declare const __DEV__: boolean;
 declare const __PROD__: boolean;

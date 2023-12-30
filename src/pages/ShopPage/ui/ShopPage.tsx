@@ -1,8 +1,8 @@
 
 const ShopPage = () => {
-  return (
-    <div>ShopPage</div>
-  )
+    return (
+        <h1>ShopPage</h1>
+    )
 }
 
 export default ShopPage

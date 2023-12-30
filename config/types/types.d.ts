@@ -1,3 +1,5 @@
+
+// Build Types
 export interface BuildPaths {
     entry: string;
     html: string;
@@ -7,6 +9,7 @@ export interface BuildPaths {
 }
 
 export type BuildMode = 'production' | 'development';
+
 export type BuildPlatform = 'mobile' | 'desktop';
 
 export interface BuildOptions {
@@ -17,4 +20,14 @@ export interface BuildOptions {
     mode: BuildMode;
     platform: BuildPlatform;
     analyzer?: boolean;
+}
+
+
+// Module Federation Types
+export interface ModuleFederationPluginOptions {
+    name: string;
+    filename?: string;
+    remotes?: Record<string, string>;
+    exposes?: Record<string, string>;
+    shared?: Record<string, any>;
 }
