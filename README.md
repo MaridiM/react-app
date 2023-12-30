@@ -1,6 +1,3 @@
-Certainly! Below is a basic example of a README.md file for your "doctorlab" project. This is a template, and you may want to customize it with more specific information about your project, its structure, and how to use it.
-
-```markdown
 # doctorlab
 
 ## Overview
@@ -65,10 +62,3 @@ If you'd like to contribute to the project, please follow these steps:
 3. Commit your changes: `git commit -m 'Add new feature'`.
 4. Push to the branch: `git push origin feature-name`.
 5. Create a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```
-
-Remember to replace `<repository-url>` with the actual URL of your Git repository. Additionally, you might want to add more sections or details based on your project's specific needs.
