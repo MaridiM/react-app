@@ -2,16 +2,17 @@
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
         "outDir": "./dist/",
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "paths": {
-            "@app/*": ["app/*"],
-            "@pages/*": ["pages/*"],
-            "@widgets/*": ["widgets/*"],
-            "@features/*": ["features/*"],
-            "@entities/*": ["entities/*"],
-            "@shared/*": ["shared/*"],
-            "@assets/*": ["shared/assets/*"],
-            "@icons/*": ["shared/assets/icons/*"]
+            "*": ["src/*"],
+            "@app/*": ["src/app/*"],
+            "@pages/*": ["src/pages/*"],
+            "@widgets/*": ["src/widgets/*"],
+            "@features/*": ["src/features/*"],
+            "@entities/*": ["src/entities/*"],
+            "@shared/*": ["src/shared/*"],
+            "@assets/*": ["src/shared/assets/*"],
+            "@icons/*": ["src/shared/assets/icons/*"]
         },
     }
 }

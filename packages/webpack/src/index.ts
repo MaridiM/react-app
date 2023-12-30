@@ -1,3 +1,3 @@
-export { buildWebpack } from './buildWebpack'
+export { buildWebpack } from './build/buildWebpack'
 export { moduleFederation } from './moduleFederation'
 export { BuildPaths, BuildMode, BuildPlatform, BuildOptions } from './types/types'

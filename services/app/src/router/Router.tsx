@@ -1,8 +1,8 @@
 import { App } from "app";
 import { AboutPage } from "pages";
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
 
-const routes = [
+const routes: RouteObject[] = [
     {
         path: "/",
         element: <App />,

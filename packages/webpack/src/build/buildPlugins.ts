@@ -4,7 +4,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin'
 import { Configuration, DefinePlugin, ProgressPlugin } from 'webpack';
-import { BuildOptions } from './types/types';
+import { BuildOptions } from '../types/types';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import path from 'path';
 

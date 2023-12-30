@@ -1,7 +1,6 @@
 import path from 'path';
-import { Configuration, container } from 'webpack';
-import { BuildMode, BuildPlatform, BuildPaths, buildWebpack } from '@packages/webpack';
-import packageJson from './package.json'
+import { Configuration } from 'webpack';
+import { BuildMode, BuildPlatform, BuildPaths, buildWebpack, moduleFederation } from '@packages/webpack';
 
 interface EnvVariables {
     mode: BuildMode
@@ -15,7 +14,7 @@ module.exports = (env: EnvVariables) => {
     const isDev: boolean = env.mode !== 'production'
 
     const paths: BuildPaths = {
-        entry: path.resolve(__dirname, 'src', 'index.tsx'),
+        entry: path.resolve(__dirname, 'src', 'index.ts'),
         output: path.resolve(__dirname, 'dist'),
         public: path.resolve(__dirname, 'public'),
         html: path.resolve(__dirname, 'public', 'index.html'),
@@ -42,29 +41,20 @@ module.exports = (env: EnvVariables) => {
         analyzer: env.analyzer,
     })
 
-    const APP_REMOTE_URL = env.APP_REMOTE_URL ?? 'http://localhost:3001'
+    
 
-    config.plugins.push(new container.ModuleFederationPlugin({
+    // Module Federation Configuration
+    const APP_REMOTE_URL = env.APP_REMOTE_URL ?? `http://localhost:3001`;
+
+    // Assuming you have a `packageJson` variable with proper typings
+    const deps: { dependencies: { [key: string]: string } } = require('./package.json');
+    
+    config.plugins.push(moduleFederation({
         name: 'root',
-        filename:'remoteEntry.js',
         remotes: {
             'about': `about@${APP_REMOTE_URL}/remoteEntry.js`,
         },
-        shared: {
-            ...packageJson.dependencies,
-            react: {
-                eager: true,
-                requiredVersion: packageJson.dependencies['react'],
-            },
-            'react-router-dom': {
-                eager: true,
-                requiredVersion: packageJson.dependencies['react-router-dom'],
-            },
-            'react-dom': {
-                eager: true,
-                requiredVersion: packageJson.dependencies['react-dom'],
-            },
-        },
+        shared: { ...deps.dependencies },
     }))
 
     return config

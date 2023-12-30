@@ -8,14 +8,6 @@ export interface BuildPaths {
 
 export type BuildMode = 'production' | 'development';
 export type BuildPlatform = 'mobile' | 'desktop';
-export interface ModuleFederationPluginOptions {
-    name: string;
-    filename?: string;
-    remotes?: Record<string, string>;
-    exposes?: Record<string, string>;
-    shared?: Record<string, any>;
-}
-
 
 export interface BuildOptions {
     isDev: boolean;
@@ -25,4 +17,13 @@ export interface BuildOptions {
     mode: BuildMode;
     platform: BuildPlatform;
     analyzer?: boolean;
+}
+
+// Module Federation
+export interface ModuleFederationPluginOptions {
+    name: string;
+    filename?: string;
+    remotes?: Record<string, string>;
+    exposes?: Record<string, string>;
+    shared?: Record<string, any>;
 }

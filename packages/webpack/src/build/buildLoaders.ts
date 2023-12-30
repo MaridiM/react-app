@@ -1,8 +1,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import ReactRefreshTypeScript from 'react-refresh-typescript'
 import { ModuleOptions } from 'webpack';
-import { BuildOptions } from './types/types';
-import { builBabelLoader } from './babel/buildBabelLoader';
+import { BuildOptions } from '../types/types';
+import { buildBabelLoader } from '../babel/buildBabelLoader';
 
 export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
     // Image Loader
@@ -79,7 +79,7 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
 
 
     // Babele Loader
-    const babelLoader = builBabelLoader(options)
+    const babelLoader = buildBabelLoader(options)
 
     return [
         fileLoader,
