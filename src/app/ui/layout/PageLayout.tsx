@@ -1,11 +1,9 @@
-import { AppRouter } from "app/providers"
+import { AppRouter } from 'app/providers';
 
-const PageLayout = () => {
-    return (
-        <div>
-            <AppRouter />
-        </div>
-    )
-}
+const PageLayout = () => (
+	<div>
+		<AppRouter />
+	</div>
+);
 
-export default PageLayout
+export default PageLayout;

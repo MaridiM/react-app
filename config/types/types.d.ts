@@ -31,3 +31,14 @@ export interface ModuleFederationPluginOptions {
     exposes?: Record<string, string>;
     shared?: Record<string, any>;
 }
+
+
+// Eslint Types
+export interface EslintPaths {
+    project?: string | string[];
+    tsconfigRootDir?: string;
+}
+
+export interface EslintOptions {
+    paths: EslintPaths
+}

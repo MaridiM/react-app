@@ -1,1 +1,1 @@
-export { buildWebpack } from './buildWebpack'
+export { buildWebpack } from './buildWebpack';

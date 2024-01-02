@@ -1,36 +1,38 @@
+import { Suspense, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'shared';
+import { useLanguage, useTranslate } from 'shared/config';
+import { ThemeContext } from './providers';
+import { PageLayout } from './ui';
 
-import { Suspense, useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { ThemeContext } from './providers'
-import { PageLayout } from './ui'
-import { useLanguage, useTranslate } from 'shared/config'
-import 'shared/config/i18n/i18n'
-import './styles/index.sass'
+import 'shared/config/i18n/i18n';
+import './styles/index.sass';
 
 const App = () => {
-    const { theme } = useContext(ThemeContext)
+	const { theme } = useContext(ThemeContext);
     
-    const { value, changeLanguage } = useLanguage()
-    const { translation: { login } } = useTranslate('auth', [
-        ['login', true],
-    ]);
-    
-    return (
-        <div className={`app ${theme}`} data-theme={theme} data-testid='App.testDataId'>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Link to='/'>Main</Link>
-                <Link to='/about'>About</Link>
-                <Link to='/shop'>Shop</Link>
+	const { value, changeLanguage } = useLanguage();
+	const { translation: { login } } = useTranslate('auth', [
+		['login', true],
+	]);
+	
+	return (
+		<div className={`app ${theme}`} data-theme={theme} data-testid='App.testDataId'>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Link to='/'>Main</Link>
+				<Link to='/about'>About</Link>
+				<Link to='/shop'>Shop</Link>
 
-                <button onClick={(e) => changeLanguage(e)}>{ value }</button>
+				<button onClick={(e) => changeLanguage(e)}>{ value }</button>
                 
-                <h3>{login.title }</h3>
+				<h3>{ login.title }</h3>
+				<Button text='Button' />
+				
+				{/* SHOW FROM  ELEMENT */}
+				<PageLayout />
+			</Suspense>
+		</div> 
+	);
+};
 
-                {/* SHOW FROM  ELEMENT */}
-                <PageLayout />
-            </Suspense>
-        </div> 
-    )
-}
-
-export default App
+export default App;

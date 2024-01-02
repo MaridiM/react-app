@@ -1,1 +1,1 @@
-export { useTranslate, useLanguage } from './libs'
+export { useTranslate, useLanguage } from './libs';

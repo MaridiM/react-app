@@ -1,35 +1,33 @@
-// 
-// const wsUri: string = `${PROTOCOL_WS}://${process.env.REACT_APP_SERVER_HOST}${process.env.REACT_APP_SERVER_GRAPHQL_SUBSCRIPTION_ENDPOINT}`
-// Core
 import {
-    ApolloClient,
-    ApolloLink,
-    from,
-    HttpLink,
-    InMemoryCache,
-    makeVar,
-    NextLink,
-    NormalizedCacheObject,
-    Operation,
-    ReactiveVar,
-    split,
-    concat,
-} from '@apollo/client'
-import { WebSocketLink } from '@apollo/client/link/ws'
-import { getMainDefinition } from '@apollo/client/utilities'
-import { onError } from '@apollo/client/link/error'
-import { getLanguage, getToken } from './helpers'
-import { localStorageKey } from './localstorage'
+	ApolloClient,
+	ApolloLink,
+	HttpLink,
+	InMemoryCache,
+	concat,
+	from,
+	makeVar,
+	NextLink,
+	NormalizedCacheObject,
+	Operation,
+	ReactiveVar
+} from '@apollo/client';
+// import { WebSocketLink } from '@apollo/client/link/ws';
+// import { getMainDefinition } from '@apollo/client/utilities';
+import { onError } from '@apollo/client/link/error';
+import { getLanguage } from './helpers';
+import { localStorageKey } from './localstorage';
 
 
 /**
  * isAuth /
  * return  true or false, by localStorage.getItem('jwt')
  */
-export const isAuth: ReactiveVar<boolean> = makeVar<boolean>(!!localStorage.getItem(localStorageKey.token))
+export const isAuth: ReactiveVar<boolean> = makeVar<boolean>(!!localStorage.getItem(localStorageKey.token));
 
 // const uri = `https://${process.env.REACT_APP_SERVER_HOST}${process.env.REACT_APP_SERVER_GRAPHQL_ENDPOINT}`
-const uri = `http://localhost:8000/auth`
+const uri = 'http://localhost:8000/auth';
+// 
+// const wsUri: string = `${PROTOCOL_WS}://${process.env.REACT_APP_SERVER_HOST}${process.env.REACT_APP_SERVER_GRAPHQL_SUBSCRIPTION_ENDPOINT}`
 // const PROTOCOL_WS = window.location.protocol === 'https:' ? 'wss' : 'ws'
 // const wsUri = `${PROTOCOL_WS}://${process.env.REACT_APP_SERVER_HOST}${process.env.REACT_APP_SERVER_GRAPHQL_SUBSCRIPTION_ENDPOINT}`
 
@@ -37,29 +35,29 @@ const uri = `http://localhost:8000/auth`
 
 const authLink: ApolloLink = new ApolloLink((_operation: Operation, _forward: NextLink) => {
 
-    _operation.setContext(({ headers }: any) => {
-        const customHeaders = {
-            language: getLanguage(),
-            ...headers
-        }
-        // {
-        //     [isChangePassword ? "r-jwt" :"x-jwt"]: getToken(), // however you get your token
-        //     language: getLanguage(),
-        //     ...headers
-        // }
+	_operation.setContext(({ headers }: any) => {
+		const customHeaders = {
+			language: getLanguage(),
+			...headers
+		};
+		// {
+		//     [isChangePassword ? "r-jwt" :"x-jwt"]: getToken(), // however you get your token
+		//     language: getLanguage(),
+		//     ...headers
+		// }
 
-        return {
-            headers: customHeaders
-        }
-})
-    return _forward(_operation)
-})
+		return {
+			headers: customHeaders
+		};
+	});
+	return _forward(_operation);
+});
 
 /**
  * APOLLO: HttpLink \
  * Create HttpLink
  */
-const httpLink: HttpLink = new HttpLink({ uri })
+const httpLink: HttpLink = new HttpLink({ uri });
 
 
 
@@ -95,17 +93,18 @@ const httpLink: HttpLink = new HttpLink({ uri })
  * Show errors using toast.error
  */
 const errorLink: ApolloLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors) {
-        graphQLErrors.map(({ message, extensions: { exception } = {} }) => {
-            // toast.error(`Unexpected error: ${exception}`)
-            // console.log('Unexpected error:', exception)
-        })
-    }
-    if (networkError) {
-        // Show error if user networ or connection  with  server will down
-        // toast.error(`Network error: ${networkError}`)
-    }
-})
+	if (graphQLErrors) {
+		// graphQLErrors.map(({ message, extensions: { exception } = {} }) => {
+		graphQLErrors.map(() => {
+			// toast.error(`Unexpected error: ${exception}`)
+			// console.log('Unexpected error:', exception)
+		});
+	}
+	if (networkError) {
+		// Show error if user networ or connection  with  server will down
+		// toast.error(`Network error: ${networkError}`)
+	}
+});
 
 
 
@@ -116,10 +115,10 @@ const errorLink: ApolloLink = onError(({ graphQLErrors, networkError }) => {
  * and wsLink, and errorLink
  */
 const link: ApolloLink = from([
-    errorLink,
-    concat(authLink, httpLink)
-    // concat(authLink, combineLinks)
-])
+	errorLink,
+	concat(authLink, httpLink)
+	// concat(authLink, combineLinks)
+]);
 
 
 
@@ -128,11 +127,11 @@ const link: ApolloLink = from([
  * Create apollo Client and set Link server, and cache 
  */
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
-    // Cache initialization
-    cache: new InMemoryCache(),
-    link,
-    credentials: 'include' // using cookies for login and session management with a backend
-})
+	// Cache initialization
+	cache: new InMemoryCache(),
+	link,
+	credentials: 'include' // using cookies for login and session management with a backend
+});
 
 // Endpoint Client
-export default client
+export default client;

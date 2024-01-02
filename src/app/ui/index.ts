@@ -1,1 +1,1 @@
-export { PageLayout } from './layout'
+export { PageLayout } from './layout';

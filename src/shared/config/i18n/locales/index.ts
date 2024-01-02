@@ -1,4 +1,4 @@
-import EN from './en'
-import RU from './ru'
+import EN from './en';
+import RU from './ru';
 
-export const translations = { RU, EN }
+export const translations = { RU, EN };

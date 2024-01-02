@@ -1,8 +1,6 @@
 
-const ShopPage = () => {
-    return (
-        <h1>ShopPage</h1>
-    )
-}
+const ShopPage = () => (
+	<h1>ShopPage</h1>
+);
 
-export default ShopPage
+export default ShopPage;

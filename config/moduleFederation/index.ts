@@ -1,1 +1,1 @@
-export { moduleFederation } from './moduleFederation'
+export { moduleFederation } from './moduleFederation';

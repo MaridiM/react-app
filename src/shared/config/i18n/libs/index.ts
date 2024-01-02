@@ -1,2 +1,2 @@
-export { useTranslate } from './useTranslate'
-export { useLanguage } from './useLanguage'
+export { useTranslate } from './useTranslate';
+export { useLanguage } from './useLanguage';

@@ -1,2 +1,2 @@
-export { AppRouter } from './router'
-export { ThemeProvider, ThemeContext, Theme, useTheme } from './ThemeProvider'
+export { AppRouter } from './router';
+export { ThemeProvider, ThemeContext, Theme, useTheme } from './ThemeProvider';
