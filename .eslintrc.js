@@ -1,31 +1,31 @@
-module.exports =  {
+module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-type-checked',
         'plugin:react/recommended',
+        'plugin:i18next/recommended',
+        'plugin:prettier/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: ['./tsconfig.json'],
-        tsconfigRootDir: __dirname
+        project: ['./tsconfig.json', './postcss.config.ts'],
+        tsconfigRootDir: __dirname,
     },
-    plugins: [
-        '@typescript-eslint',
-        'react',
-        'import',
-        'react-hooks',
-    ],
+    plugins: ['@typescript-eslint', 'react', 'import', 'react-hooks', 'i18next', 'prettier'],
     rules: {
         // General rules
         eqeqeq: 'warn',
+        'no-var': 'error',
         'no-eval': 'error',
+        'prefer-const': 'warn',
         'no-undef-init': 'warn',
         'no-duplicate-imports': 'warn',
 
@@ -60,7 +60,7 @@ module.exports =  {
         // Additional rules
         'no-shadow': 'off',
         'no-unused-expressions': 'off',
-        indent: ['error', 'tab'],
+        indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
@@ -70,29 +70,34 @@ module.exports =  {
         'arrow-body-style': ['error', 'as-needed'],
 
         // Import rules
-        'import/order': ['error', {
-            groups: [
-                'builtin',
-                'external',
-                'parent',
-                'sibling',
-                'index',
-                'object',
-                'type',
-            ],
-            pathGroups: [{
-                pattern: '**/**',
-                group: 'parent',
-                position: 'before',
-            }],
-            alphabetize: { order: 'asc' },
-        }],
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+                pathGroups: [
+                    {
+                        pattern: '**/**',
+                        group: 'parent',
+                        position: 'before',
+                    },
+                ],
+                alphabetize: { order: 'asc' },
+            },
+        ],
+        'i18next/no-literal-string': 2,
+        'prettier/prettier': [
+            'warn',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
     settings: {
         react: {
             version: 'detect',
         },
     },
+    ignorePatterns: ['*.ts', '*.js'],
     root: true,
     globals: {
         __ENV__: true,
@@ -101,6 +106,6 @@ module.exports =  {
         __TEST__: true,
         __VERSION__: true,
         __BUILD_DATE__: true,
-        __PLATFORM__: true
+        __PLATFORM__: true,
     },
 };

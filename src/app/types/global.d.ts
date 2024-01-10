@@ -26,7 +26,6 @@ declare module '*.svg' {
     export default SVG;
 }
 
-
 declare module '*.webp';
 declare module '*.gif';
 declare module '*.png';

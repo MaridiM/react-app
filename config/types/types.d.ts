@@ -1,4 +1,3 @@
-
 // Build Types
 export interface BuildPaths {
     entry: string;
@@ -22,7 +21,6 @@ export interface BuildOptions {
     analyzer?: boolean;
 }
 
-
 // Module Federation Types
 export interface ModuleFederationPluginOptions {
     name: string;
@@ -30,15 +28,4 @@ export interface ModuleFederationPluginOptions {
     remotes?: Record<string, string>;
     exposes?: Record<string, string>;
     shared?: Record<string, any>;
-}
-
-
-// Eslint Types
-export interface EslintPaths {
-    project?: string | string[];
-    tsconfigRootDir?: string;
-}
-
-export interface EslintOptions {
-    paths: EslintPaths
 }

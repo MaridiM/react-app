@@ -18,16 +18,20 @@ npm install react-i18next i18next i18next-http-backend i18next-browser-languaged
 
 ```jsx
 // Импортируем хук
-import { useTranslate } from "shared/config";
+import { useTranslate } from 'shared/config';
 
 // Пример использования хука
-const { translation: { login, forgot } } = useTranslate('auth', [
+const {
+    translation: { login, forgot },
+} = useTranslate('auth', [
     ['login', true],
     ['forgot', true],
 ]);
 
 // Другой пример
-const { translation: { register, support } } = useTranslate('auth', [
+const {
+    translation: { register, support },
+} = useTranslate('auth', [
     ['register', true],
     ['support', true],
 ]);
@@ -39,13 +43,13 @@ const { translation: { register, support } } = useTranslate('auth', [
 
 Кастомный хук `useTranslate` принимает следующие параметры:
 
-- `type: string | null`: Тип локализации (например, 'auth'). По умолчанию `null`.
-- `layers: any[]`: Слои для получения переводов. Каждый слой представляет собой массив, где первый элемент - ключ, а второй - булевое значение, указывающее, нужно ли возвращать объект. По умолчанию `[]`.
+-   `type: string | null`: Тип локализации (например, 'auth'). По умолчанию `null`.
+-   `layers: any[]`: Слои для получения переводов. Каждый слой представляет собой массив, где первый элемент - ключ, а второй - булевое значение, указывающее, нужно ли возвращать объект. По умолчанию `[]`.
 
 Хук возвращает объект с полями:
 
-- `translation: Record<string, any>`: Объект с переводами для указанных ключей.
-- `type: string | null`: Тип локализации.
+-   `translation: Record<string, any>`: Объект с переводами для указанных ключей.
+-   `type: string | null`: Тип локализации.
 
 ## Примеры Файлов Локализации (locales/en/error.json)
 
@@ -73,7 +77,7 @@ const { translation: { register, support } } = useTranslate('auth', [
 
         "forgot": {
             // ... (остальные переводы) ...
-        },
+        }
 
         // ... (остальные переводы) ...
     }
@@ -85,7 +89,9 @@ const { translation: { register, support } } = useTranslate('auth', [
 ### Пример 1
 
 ```jsx
-const { translation: { login, forgot } } = useTranslate('auth', [
+const {
+    translation: { login, forgot },
+} = useTranslate('auth', [
     ['login', true],
     ['forgot', true],
 ]);
@@ -98,7 +104,9 @@ console.log(forgot.button); // "Forgot password?"
 ### Пример 2
 
 ```jsx
-const { translation: { register, support } } = useTranslate('auth', [
+const {
+    translation: { register, support },
+} = useTranslate('auth', [
     ['register', true],
     ['support', true],
 ]);

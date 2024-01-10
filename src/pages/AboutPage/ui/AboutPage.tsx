@@ -1,6 +1,3 @@
-
-const AboutPage = () => (
-	<h1>AboutPage</h1>
-);
+const AboutPage = () => <h1>AboutPage</h1>;
 
 export default AboutPage;

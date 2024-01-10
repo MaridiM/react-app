@@ -3,7 +3,7 @@ import error from './error.json';
 import success from './success.json';
 
 export default {
-	...auth,
-	...error,
-	...success,
+    ...auth,
+    ...error,
+    ...success,
 };
