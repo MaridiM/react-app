@@ -1,0 +1,15 @@
+.btn {
+    outline: none;
+    border: none;
+    background: none;
+    box-shadow: 0 0 0 2px #4b87f5;
+    font-size: 16px;
+
+    &__text {
+        color: #00f;
+
+        &__icon {
+            fill: blue;
+        }
+    }
+}

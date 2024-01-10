@@ -1,0 +1,33 @@
+{        
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-prettier-scss",
+        "stylelint-prettier/recommended"
+    ],
+    "plugins": ["stylelint-prettier"],
+    "syntax": "scss",
+    "rules": {
+        "prettier/prettier" : true,
+        "rule-empty-line-before": "always",
+        "property-no-unknown": true,
+        "named-grid-areas-no-invalid": null,
+        "color-function-notation": ["legacy", { "ignore": ["with-var-inside"] }],
+        "no-duplicate-selectors": true,
+        "custom-property-pattern": "^[A-Za-z][A-Za-z0-9-]*$",
+        "alpha-value-notation": "number",
+        "at-rule-no-unknown": null,
+        "selector-class-pattern": null,
+        "no-empty-source": true,
+        "no-descending-specificity": null,
+        "scss/at-rule-no-unknown": true,
+        "scss/double-slash-comment-empty-line-before": null,
+        "scss/double-slash-comment-whitespace-inside": "always",
+        "scss/operator-no-newline-after": null,
+        "scss/operator-no-newline-before": null,
+        "scss/operator-no-unspaced": null,
+        "scss/selector-no-redundant-nesting-selector": true,
+        "selector-pseudo-element-colon-notation": "double",
+        "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["v-deep"] }],
+        "value-keyword-case": "lower"
+    }
+}

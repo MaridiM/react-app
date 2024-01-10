@@ -1,9 +1,9 @@
 import { AppRouter } from 'app/providers';
 
 const PageLayout = () => (
-	<div>
-		<AppRouter />
-	</div>
+    <div>
+        <AppRouter />
+    </div>
 );
 
 export default PageLayout;
