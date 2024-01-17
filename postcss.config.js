@@ -4,6 +4,7 @@ const config = {
     parser: 'sugarss',
     syntax: 'postcss-scss',
     plugins: [
+        require('autoprefixer'),
         postcssPresetEnv({
             features: {
                 'nesting-rules': {

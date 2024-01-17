@@ -19,7 +19,15 @@ module.exports = {
         project: ['./tsconfig.json', './postcss.config.ts'],
         tsconfigRootDir: __dirname,
     },
-    plugins: ['@typescript-eslint', 'react', 'import', 'react-hooks', 'i18next', 'prettier'],
+    plugins: [
+        '@typescript-eslint',
+        'react',
+        'import',
+        'react-hooks',
+        'i18next',
+        'prettier',
+        'unused-imports',
+    ],
     rules: {
         // General rules
         eqeqeq: 'warn',
@@ -58,6 +66,16 @@ module.exports = {
         '@typescript-eslint/no-redundant-type-constituents': 'off',
 
         // Additional rules
+        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {
+                vars: 'all',
+                varsIgnorePattern: '^_',
+                args: 'after-used',
+                argsIgnorePattern: '^_',
+            },
+        ],
         'no-shadow': 'off',
         'no-unused-expressions': 'off',
         indent: ['error', 4],
@@ -97,7 +115,7 @@ module.exports = {
             version: 'detect',
         },
     },
-    ignorePatterns: ['*.ts', '*.js'],
+    // ignorePatterns: ['*.ts', '*.js'],
     root: true,
     globals: {
         __ENV__: true,

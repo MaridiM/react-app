@@ -28,7 +28,7 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
                             {
                                 name: 'convertColors',
                                 params: {
-                                    currentColor: true,
+                                    currentcolor: true,
                                 },
                             },
                         ],
@@ -58,7 +58,7 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
             options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             styleModuleLoader,
             'postcss-loader',
-            // 'sass-loader',
+            'sass-loader',
         ],
     };
 
